@@ -13,12 +13,10 @@ async function onInputChange(inputVal) {
   let arr = [];
   let data = await fetch('https://api.publicapis.org/entries');
   data = await data.json();
-  console.log(valInInput, inputVal);
   if (valInInput !== inputVal) {
     arr = [];
     return;
   }
-  console.log(inputVal);
   for (let obj of data.entries) {
     if (obj.API.toLowerCase().startsWith(inputVal.toLowerCase())) {
       arr.push(obj.API.toLowerCase());
